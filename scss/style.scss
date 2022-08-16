@@ -1,0 +1,801 @@
+@import '_settings';
+
+// ---------------------------
+// 全体構造
+// ---------------------------
+body {
+    font-family: 'EB Garamond', serif, "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", 'Meiryo', sans-serif;
+    color: $main-color;
+    background-color: $base-color;
+    font-size: 16px;
+    padding-top: 100px;
+}
+
+.page {
+    // 画面サイズが小さくなった時に横スクロールバーが出ないように
+    overflow: hidden;
+}
+
+#slider {
+    width: 100%;
+    height: 80vh;
+    margin: 0 auto 190px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 50px;
+
+    .number {
+        font-size: 20px;
+        border-top: 2px solid $main-color;
+        display: inline-block;
+        margin: 10px 20px;
+        padding-top: 15px;
+    }
+
+    h2 {
+        font-size: 56px;
+        display: inline-block;
+    }
+}
+
+// scrollしてsectionへ
+section {
+    padding: 100px 0 0;
+}
+
+#page-link {
+    padding-top: 0;
+}
+
+// ---------------------------
+// ヘッダー
+// ---------------------------
+#top header {
+    @include row-around();
+    font-size: 18px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $base-color;
+    z-index: 10;
+
+    nav {
+        width: 45%;
+        padding: 0 20px;
+
+        ul {
+            @include row-space();
+        }
+
+        a {
+            display: block;
+            position: relative;
+            padding-bottom: 3px;
+
+            &::after {
+                content: '';
+                /*絶対配置で線の位置を決める*/
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                /*線の形状*/
+                width: 100%;
+                height: 2px;
+                background: $main-color;
+                /*アニメーションの指定*/
+                transition: all .3s;
+                transform: scale(0, 1);
+                /*X方向0、Y方向1*/
+                transform-origin: center top;
+                /*上部中央基点*/
+            }
+
+            &:hover::after {
+                transform: scale(1, 1);
+                /*X方向にスケール拡大*/
+            }
+        }
+    }
+
+    h1 {
+        width: 10%;
+    }
+
+    .reserve {
+        width: 45%;
+        text-align: right;
+        padding: 0 20px;
+
+        p {
+            text-align: center;
+            border: 1px solid $main-color;
+            display: inline-block;
+            padding: 10px 15px;
+
+            span {
+                font-size: 12px;
+            }
+
+        }
+    }
+}
+
+// ---------------------------
+// メイン
+// ---------------------------
+#top main {
+    width: 80%;
+    margin: 0 auto;
+
+    // ハンバーガー用
+    #g-nav {
+        display: none;
+    }
+
+    .reserve {
+        display: none;
+    }
+
+    section {
+        margin-bottom: 200px;
+    }
+
+    .concept {
+        @include row-revers();
+
+        .text {
+            width: 50%;
+            padding: 0 20px;
+
+            .concept-p {
+                width: 90%;
+                margin: 0 auto;
+                line-height: 2;
+            }
+        }
+    }
+
+    .gallery {
+        .flex {
+            @include row-space();
+            flex-wrap: wrap;
+        }
+
+        .box {
+            width: 400px;
+
+            .garrely-img {
+                position: relative;
+            }
+
+            h3 {
+                font-size: 56px;
+                transform: translate(100%) rotate(90deg);
+                line-height: 40px;
+                position: absolute;
+                right: 80px;
+                top: 70px;
+            }
+        }
+
+        .trend,
+        .french {
+            margin-top: 250px;
+        }
+
+        .office,
+        .nuance {
+            margin-bottom: 250px;
+        }
+
+        .text {
+            position: relative;
+            max-width: 400px;
+            width: calc(100% - 80px);
+            height: auto;
+            padding: 44px 0 0 50px;
+            margin: -80px 0 0 auto;
+            background-color: $base-color;
+            z-index: 2;
+            border-top: 4px solid $main-color;
+
+
+            h4 {
+                text-align: left;
+                font-size: 20px;
+            }
+
+            p {
+                text-align: left;
+                line-height: 2;
+            }
+        }
+    }
+
+    .menu {
+        .flex {
+            @include row-space();
+            align-items: flex-start;
+
+            .flex-left,
+            .flex-right {
+                width: 45%;
+            }
+        }
+
+        dl {
+            width: 100%;
+            @include row-space();
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+
+            p {
+                width: 100%;
+                font-size: 24px;
+                line-height: 2;
+                border-bottom: 1px solid $main-color;
+
+                &::before {
+                    @include border-gradation();
+                }
+
+            }
+
+            dt {
+                width: 50%;
+                font-size: 18px;
+                line-height: 2;
+            }
+
+            dd {
+                width: 50%;
+                font-size: 18px;
+                line-height: 2;
+                text-align: right;
+            }
+        }
+    }
+
+    .shop {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+
+        .shop-image {
+            margin-bottom: 80px;
+        }
+
+        .staff {
+            @include row-space();
+            margin-bottom: 200px;
+
+            p {
+                text-align: left;
+                position: relative;
+                max-width: 250px;
+                height: auto;
+                margin: -100px -80px 0 auto;
+                background-color: $base-color;
+                padding: 20px;
+                border-top: 4px solid $main-color;
+
+                span {
+                    display: inline-block;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+
+    .access {
+        .flex {
+            @include row-reverse-center();
+        }
+
+        .title {
+            text-align: left;
+        }
+
+        .text {
+            padding-left: 50px;
+
+            p {
+                font-size: 20px;
+                line-height: 3;
+            }
+        }
+
+        .map {
+
+            .button {
+                text-align: center;
+
+                p {
+                    background-color: $base-color;
+                    line-height: 3;
+                    padding: 0 15px;
+                    display: inline-block;
+
+                    &::after {
+                        @include border-gradation();
+                    }
+
+                    a {
+                        display: block;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .links {
+        @include row-space();
+        background-color: $main-color;
+        color: $base-color;
+        margin-bottom: 200px;
+        padding-top: 0;
+
+        h5 {
+            font-size: 40px;
+            margin: 30px 0 30px 20px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 2;
+            margin: 0 20px 30px;
+        }
+
+        div {
+            border-right: 1px solid $base-color;
+
+            &:last-child {
+                border-right: none;
+            }
+        }
+
+        i {
+            color: $base-color;
+            margin-left: 25px;
+            font-size: 40px;
+        }
+    }
+
+}
+
+
+
+// ---------------------------
+// フッター
+// ---------------------------
+#top footer {
+    height: 30vh;
+    width: 80%;
+    margin: 0 auto;
+
+    .flex {
+        @include row-space();
+
+        p {
+            line-height: 2;
+        }
+    }
+
+    .copy {
+        text-align: right;
+        margin-top: 40px;
+    }
+
+}
+
+// -----------------------
+// レスポンシブ
+// -----------------------
+// 576px基本
+
+@media screen and (max-width:926px) {
+    body {
+        padding-top: 0;
+    }
+
+
+    #slider {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    #top header {
+        position: static;
+        height: 10vh;
+
+        nav {
+            display: none;
+        }
+
+
+        h1 {
+            width: 70px;
+        }
+
+        .reserve {
+            display: none;
+        }
+    }
+
+    #top main {
+        width: 100%;
+
+        // ハンバーガー
+        #g-nav {
+            display: block;
+
+            /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+            position: fixed;
+            z-index: 999;
+            /*ナビのスタート位置と形状*/
+            bottom: -120%;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            /*ナビの高さ*/
+            background: $base-color;
+            /*動き*/
+            transition: all 0.6s;
+        }
+
+        /*アクティブクラスがついたら位置を0に*/
+        #g-nav.panelactive {
+            bottom: 0;
+        }
+
+        /*ナビゲーション*/
+        #g-nav ul {
+            /*ナビゲーション天地中央揃え*/
+            position: absolute;
+            z-index: 999;
+            top: 30%;
+            left: 45%;
+            transform: translate(-50%, -50%);
+        }
+
+        /*リストのレイアウト設定*/
+
+        #g-nav li {
+            list-style: none;
+            text-align: left;
+            font-size: 25px;
+        }
+
+        #g-nav li a {
+            color: $main-color;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+            letter-spacing: 0.1em;
+            font-weight: bold;
+        }
+
+        #g-nav div.text {
+            line-height: 2;
+            position: absolute;
+            bottom: 20%;
+            left: 20%;
+            padding: 20px 0;
+            border-top: 1px solid $main-color;
+            border-bottom: 1px solid $main-color;
+        }
+
+
+        /*========= ボタンのためのCSS ===============*/
+        .openbtn {
+            position: fixed;
+            z-index: 9999;
+            /*ボタンを最前面に*/
+            bottom: 10px;
+            left: 10px;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+        }
+
+        /*×に変化*/
+        .openbtn span {
+            display: inline-block;
+            transition: all .4s;
+            position: absolute;
+            left: 14px;
+            height: 2px;
+            border-radius: 2px;
+            background-color: $main-color;
+            width: 45%;
+        }
+
+        .openbtn span:nth-of-type(1) {
+            top: 15px;
+        }
+
+        .openbtn span:nth-of-type(2) {
+            top: 23px;
+        }
+
+        .openbtn span:nth-of-type(3) {
+            top: 31px;
+        }
+
+        .openbtn.active span:nth-of-type(1) {
+            top: 18px;
+            left: 18px;
+            transform: translateY(6px) rotate(-45deg);
+            width: 30%;
+        }
+
+        .openbtn.active span:nth-of-type(2) {
+            opacity: 0;
+        }
+
+        .openbtn.active span:nth-of-type(3) {
+            top: 30px;
+            left: 18px;
+            transform: translateY(-6px) rotate(45deg);
+            width: 30%;
+        }
+
+
+        section {
+            margin-bottom: 100px;
+        }
+
+        .title {
+            .number {
+                font-size: 20px;
+                display: inline-block;
+                margin: 10px 30px 10px 0;
+            }
+
+            h2 {
+                font-size: 44px;
+            }
+        }
+
+        .fixed-nav {
+            position: fixed;
+            background-color: $base-color;
+            z-index: 30;
+            height: 10vh;
+
+
+            .responsive-menu {
+                // reserve button
+                height: 10vh;
+                display: block;
+                width: 100%;
+                padding: 0 20px;
+                position: fixed;
+                z-index: 30;
+                background-color: $base-color;
+
+
+                p {
+                    position: fixed;
+                    bottom: 5px;
+                    right: 10px;
+                    font-size: 15px;
+                    text-align: center;
+                    border: 1px solid $main-color;
+                    display: inline-block;
+                    padding: 10px 15px;
+                    margin-top: 5px;
+
+                    span {
+                        font-size: 12px;
+                    }
+
+                }
+            }
+
+
+
+        }
+
+        .concept {
+            @include column-reverse-center();
+
+            .text {
+                width: 80%;
+                margin: 40px auto 0;
+                padding: 0;
+
+                .concept-p {
+                    width: 90%;
+                    margin: 0 auto;
+                    line-height: 2;
+                }
+            }
+        }
+
+        .gallery {
+            .flex {
+                @include row-space();
+                flex-wrap: wrap;
+            }
+
+            .box {
+                width: 70%;
+                margin: 0 auto 60px;
+
+                h3 {
+                    font-size: 56px;
+                    transform: translate(100%) rotate(90deg);
+                    line-height: 40px;
+                    position: absolute;
+                    right: 40px;
+                    top: 60px;
+                }
+            }
+
+            .text {
+                padding: 20px 0 0 20px;
+                position: relative;
+                max-width: 400px;
+                width: calc(100% - 40px);
+                height: auto;
+                background-color: $base-color;
+                z-index: 2;
+                border-top: 4px solid $main-color;
+
+                h4 {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                }
+
+                p {
+                    font-size: 16px;
+                    line-height: 1.8;
+                }
+
+            }
+
+            div.nuance {
+                h3 {
+                    right: 60px;
+                }
+            }
+
+            .trend,
+            .french {
+                margin-top: 0;
+            }
+
+            .french {
+                margin-top: 60px;
+            }
+
+            .office,
+            .nuance {
+                margin-bottom: 0;
+            }
+        }
+
+        .menu {
+            .flex {
+                @include cloumn-center();
+
+                .flex-left,
+                .flex-right {
+                    width: 80%;
+                }
+            }
+
+        }
+
+        .shop {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+
+            .shop-image {
+                margin-bottom: 60px;
+            }
+
+            .staff {
+                @include row-space();
+                flex-direction: column;
+                margin-bottom: 200px;
+                text-align: left;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                p {
+                    padding: 20px 1px 0 20px;
+                    max-width: 300px;
+                    width: calc(100% - 40px);
+                    background-color: $base-color;
+                    z-index: 2;
+                    border-top: 4px solid #ffffff;
+                    margin-right: 0px;
+                    line-height: 2;
+                }
+
+                div {
+                    margin-bottom: 40px;
+                }
+            }
+        }
+
+        .access {
+            .flex {
+                @include cloumn-center();
+                justify-content: center;
+            }
+
+            .map {
+                text-align: center;
+            }
+
+            iframe {
+                width: 350px;
+            }
+        }
+
+        .links {
+            @include row-space();
+            flex-direction: column;
+            margin-bottom: 80px;
+
+            h5 {
+                font-size: 32px;
+                margin: 20px 0 20px 20px;
+            }
+
+            p {
+                font-size: 16px;
+                line-height: 1.5;
+                margin: 0 20px 20px;
+            }
+
+            div.blog,
+            div.twitter {
+                border-bottom: 1px solid $base-color;
+                border-right: none;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+
+            i {
+                font-size: 30px;
+                line-height: 0;
+            }
+        }
+
+    }
+
+    #top footer {
+        height: 50vh;
+
+        .text {
+            display: none;
+        }
+
+        .flex {
+            display: block;
+        }
+
+        .logo {
+            text-align: center;
+        }
+
+        .copy {
+            text-align: center;
+            padding-bottom: 15px;
+        }
+    }
+
+}
