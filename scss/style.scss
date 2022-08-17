@@ -13,6 +13,8 @@ body {
 
 .page {
     // 画面サイズが小さくなった時に横スクロールバーが出ないように
+    max-width: 1200px;
+    margin: 0 auto;
     overflow: hidden;
 }
 
