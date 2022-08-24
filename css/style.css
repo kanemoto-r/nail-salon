@@ -8,8 +8,6 @@ body {
 }
 
 .page {
-  max-width: 1200px;
-  margin: 0 auto;
   overflow: hidden;
 }
 
@@ -679,7 +677,7 @@ section {
             transform: translate(100%) rotate(90deg);
     line-height: 40px;
     position: absolute;
-    right: 55px;
+    right: 40px;
     top: 60px;
   }
   #top main .gallery .text {
@@ -700,13 +698,8 @@ section {
     font-size: 16px;
     line-height: 1.8;
   }
-  #top main .gallery .trend h3,
-  #top main .gallery .office h3 {
-    top: 50px;
-    right: 45px;
-  }
-  #top main .gallery .nuance h3 {
-    right: 65px;
+  #top main .gallery div.nuance h3 {
+    right: 60px;
   }
   #top main .gallery .trend,
   #top main .gallery .french {
@@ -827,6 +820,9 @@ section {
     font-size: 16px;
     line-height: 1.5;
     margin: 0 20px 20px;
+  }
+  #top main .links div {
+    width: 80%;
   }
   #top main .links div.blog,
   #top main .links div.twitter {

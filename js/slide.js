@@ -3,17 +3,17 @@
 var windowwidth = window.innerWidth || document.documentElement.clientWidth || 0;
 if (windowwidth > 768) {
     var responsiveImage = [//PC用の画像
-        { src: 'images/main-image1.jpg' },
-        { src: 'images/main-image2.jpg' },
-        { src: 'images/main-image3.jpg' },
-        { src: 'images/main-image4.jpg' }
+        { src: '../images/main-image1.jpg' },
+        { src: '../images/main-image2.jpg' },
+        { src: '../images/main-image3.jpg' },
+        { src: '../images/main-image4.jpg' }
     ];
 } else {
     var responsiveImage = [//タブレットサイズ（768px）以下用の画像
-        { src: 'images/main-image1-responsive.jpg' },
-        { src: 'images/main-image2-responsive.jpg' },
-        { src: 'images/main-image3-responsive.jpg' },
-        { src: 'images/main-image4-responsive.jpg' }
+        { src: '../images/main-image1-responsive.jpg' },
+        { src: '../images/main-image2-responsive.jpg' },
+        { src: '../images/main-image3-responsive.jpg' },
+        { src: '../images/main-image4-responsive.jpg' }
     ];
 }
 

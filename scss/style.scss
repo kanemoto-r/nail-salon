@@ -13,8 +13,6 @@ body {
 
 .page {
     // 画面サイズが小さくなった時に横スクロールバーが出ないように
-    max-width: 1200px;
-    margin: 0 auto;
     overflow: hidden;
 }
 
@@ -634,7 +632,7 @@ section {
                     transform: translate(100%) rotate(90deg);
                     line-height: 40px;
                     position: absolute;
-                    right: 55px;
+                    right: 40px;
                     top: 60px;
                 }
             }
@@ -661,17 +659,9 @@ section {
 
             }
 
-            .trend,
-            .office {
+            div.nuance {
                 h3 {
-                    top: 50px;
-                    right: 45px;
-                }
-            }
-
-            .nuance {
-                h3 {
-                    right: 65px;
+                    right: 60px;
                 }
             }
 
@@ -767,6 +757,10 @@ section {
                 font-size: 16px;
                 line-height: 1.5;
                 margin: 0 20px 20px;
+            }
+
+            div {
+                width: 80%;
             }
 
             div.blog,
